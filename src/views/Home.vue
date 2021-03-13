@@ -1,18 +1,20 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Sketch :schema="schema" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import { schema } from '@/mock/schema'
+import Sketch from '@/components/Sketch'
 
 export default {
   name: "Home",
   components: {
-    HelloWorld
+    HelloWorld,
+    Sketch
   }
 };
 </script>
