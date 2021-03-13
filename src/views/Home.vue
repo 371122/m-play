@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <Sketch :schema="schema" />
+    <ComponentMarket />
+    <Sketch :widget="schema" />
   </div>
 </template>
 
@@ -9,12 +9,18 @@
 // @ is an alias to /src
 import { schema } from '@/mock/schema'
 import Sketch from '@/components/Sketch'
+import ComponentMarket from '@/components/ComponentMarket'
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
-    Sketch
+    Sketch,
+    ComponentMarket,
+  },
+  data(){
+    return {
+      schema
+    }
   }
 };
 </script>

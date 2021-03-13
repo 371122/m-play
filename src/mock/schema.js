@@ -1,10 +1,13 @@
 export const schema = {
-    name:"",
+    name:"根容器",
     isContainer: true,
-    tag:"div",
+    tag:"root-container",
     attrs:{
         style:{
-            'flex-direction':'column' 
+            'flex-direction':'column',
+            backgroundColor:"gray",
+            height: '500px',
+            width: '500px'
         }
     }
 }

@@ -4,7 +4,8 @@ const vDraggable = {
         el.__lisenters__ = {
 
         }
-        el.addEventListener('drag', (ev)=>{console.log('drag',ev)})
+        el.setAttribute('draggable', 'true')
+        // el.addEventListener('drag', (ev)=>{console.log('drag',ev)})
         el.addEventListener('dragstart', (ev)=>{console.log('drag start', ev)})
         el.addEventListener('dragend', (ev)=>{console.log('drag end')})
     },
