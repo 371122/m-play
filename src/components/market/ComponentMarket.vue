@@ -1,17 +1,18 @@
 <template>
   <div class="component-market">
-    <ul class="component-list">
-      <li class="component-item" v-for="cmp in components" :key="cmp.id" v-draggable="cmp">
-        {{ cmp.name }}
-      </li>
-    </ul>
+      <DragElement  class="component-item" v-for="cmp in components" :key="cmp.id" :cmp="cmp"/>
   </div>
 </template>
 
 <script>
-import { components } from "../mock/componentList";
+import { components } from "../../mock/componentList";
+import DragElement from "./DragElement"
 export default {
   name: "ComponentMarket",
+
+  components:{
+    DragElement
+  },
 
   data() {
     return {
@@ -22,7 +23,7 @@ export default {
 </script>
 
 <style lang="scss">
-.component-list {
+.component-market {
   width: 100%;
   list-style: none;
   display: flex;

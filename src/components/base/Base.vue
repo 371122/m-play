@@ -1,6 +1,6 @@
 <template>
   <div class="widget-item" :style="style">
-      <slot></slot>
+      <slot>{{widget.name}}</slot>
   </div>
 </template>
 

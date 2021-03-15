@@ -1,6 +1,6 @@
 <template>
   <div id="sketch" v-droppable>
-      <component :is="tag" :widget="widget"></component>
+      <component :is="tag" :widget="widget" @add-child="handleAdd"></component>
   </div>
 </template>
 
@@ -18,18 +18,32 @@ export default {
     },
 
     props:{
-        widget:Object
+        schema: Object
     },
     
     data(){
         return {
+            widget: this.schema
         }
     },
     computed:{
         tag(){
             return this.widget.tag
         }
-
+    },
+    methods:{
+        /**
+         * todo:使用splice改写
+         * 参数添加index，从某处插入子元素
+         */
+        handleAdd(parentId, widget){
+            this.widget.children.push(widget)
+            // const parent = this.widget.children.find(child => {
+            //     return child.id === parentId;
+            // })
+            // console.log('parent', parent)
+            // parent.children.push(widget)
+        }
     }
 }
 </script>

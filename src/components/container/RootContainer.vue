@@ -1,6 +1,6 @@
 <template>
-  <div class="root-container" :style="style" v-droppable @drop="handleDrop">
-
+  <div class="root-container" :style="style" v-droppable>
+      <!-- todo:动态渲染children -->
   </div>
 </template>
 
@@ -9,7 +9,7 @@ export default {
     name:"RootContainer",
 
     props:{
-        widget:Object,
+        widget: Object,
     },
     computed:{
         style(){
@@ -17,8 +17,10 @@ export default {
         }
     },
     methods:{
-        handleDrop(e){
-            e.target.classList.add('drag-over2')
+        handleDrop(widget){
+            const parentId = 'root'
+            console.log('root', widget)
+            this.$emit('add-child', parentId,  widget)
         }
     }
 
@@ -27,9 +29,9 @@ export default {
 
 <style lang="scss">
 .root-container{
-    transition: all 300ms ease-in;
+    transition: all 300ms ease-out;
 }
 .drag-over, .drag-over2{
-    background-color: rgb(255, 206, 206);
+    background-color: rgb(255, 206, 206) !important;
 }
 </style>

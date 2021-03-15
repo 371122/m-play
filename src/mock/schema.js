@@ -2,6 +2,7 @@ export const schema = {
     name:"根容器",
     isContainer: true,
     tag:"root-container",
+    id: 'root',
     attrs:{
         style:{
             'flex-direction':'column',
@@ -9,5 +10,6 @@ export const schema = {
             height: '500px',
             width: '500px'
         }
-    }
+    },
+    children: []
 }

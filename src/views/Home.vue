@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <ComponentMarket />
-    <Sketch :widget="schema" />
+    <Sketch :schema="schema" />
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 // @ is an alias to /src
 import { schema } from '@/mock/schema'
 import Sketch from '@/components/Sketch'
-import ComponentMarket from '@/components/ComponentMarket'
+import ComponentMarket from '@/components/market/ComponentMarket'
 
 export default {
   name: "Home",
