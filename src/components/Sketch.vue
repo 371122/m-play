@@ -50,10 +50,9 @@ export default {
 
 <style lang="scss">
 #sketch{
-    margin-top: 100px;
     margin-left: 20px;
     height: 800px;
     background-color: white;
-    border: 1px solid  gray;
+    border: 1px solid  rgb(194, 194, 194);
 }
 </style>

@@ -24,7 +24,7 @@ export default {
 
 <style lang="scss">
 .component-market {
-  width: 100%;
+  width: 300px;
   list-style: none;
   display: flex;
 

@@ -24,5 +24,9 @@ export default {
 </script>
 
 <style>
+.drag-element{
+    border: 2px solid #0952f0;
+    border-radius: 4px;
+}
 
 </style>

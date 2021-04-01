@@ -24,3 +24,12 @@ export default {
   }
 };
 </script>
+
+<style>
+.home{
+  background: #f4f5f7;
+  display: flex;
+  padding: 52px;
+  box-sizing: border-box;
+}
+</style>
