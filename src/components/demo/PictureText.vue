@@ -38,6 +38,9 @@ export default {
         text-align: left;
         flex-shrink: 1;
         flex-grow: 1;
+        p {
+            font-size: 12px;
+        }
     }
 }
 </style>

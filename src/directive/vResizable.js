@@ -17,7 +17,7 @@ const vResizable = {
             background-color: #fff;
             cursor: se-resize;
         `
-        anchor.addEventListener('mousedown', (e)=>{
+        anchor.addEventListener('mousedown', el.__self_mousedown__ = (e)=>{
             const { pageX, pageY } = e
             vm._startX = pageX
             vm._startY = pageY
@@ -25,7 +25,7 @@ const vResizable = {
             vm._offsetHeight = el.offsetHeight
             vm._actived = true
         })
-        document.addEventListener('mousemove',(e)=>{
+        document.addEventListener('mousemove',el.__global_mousemove__ = (e)=>{
             if(!vm._actived) { return false }
             const { pageX, pageY } = e
             const deltaX = pageX - vm._startX
@@ -33,14 +33,16 @@ const vResizable = {
             el.style.width = vm._offsetWidth + deltaX + 'px'
             el.style.height = vm._offsetHeight + deltaY + 'px'
         })
-        document.addEventListener('mouseup', () => {
+        document.addEventListener('mouseup', el.__global_mouseup__. = () => {
             vm._actived = false
         })
         el.appendChild(anchor)
     },
     update: function(el, binding){},
     unbind: function(el, binding){
-
+        el.removeEventLister('mousedown', el.__self_mousedown__)
+        document.removeEventLister('mousemove', el.__global_mousemove__)
+        document.removeEventLister('mouseup', el.__global_mouseup__)
     }
 }
 export default vResizable
