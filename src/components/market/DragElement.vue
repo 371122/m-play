@@ -27,6 +27,8 @@ export default {
 .drag-element{
     border: 2px solid #0952f0;
     border-radius: 4px;
+    width: 100px;
+    height: 100px;
 }
 
 </style>

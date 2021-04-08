@@ -26,12 +26,13 @@ export default {
 .component-market {
   width: 300px;
   list-style: none;
-  display: flex;
 
   .component-item {
     width: 80px;
     height: 80px;
+    float: left;
     margin-right: 20px;
+    margin-bottom: 20px;
     background-color: #e4e4e4;
   }
 }

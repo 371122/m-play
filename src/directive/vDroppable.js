@@ -5,16 +5,25 @@ const vDroppable = {
 
         }
         console.log('vDroppable', binding, vnode)
-        el.addEventListener('mouseenter', (ev)=>{
+        el.addEventListener('dragenter', (ev)=>{
             ev.stopPropagation()
+            console.log('drag-enter')
             el.classList.add('drag-over')
         })
-        el.addEventListener('mouseleave', (ev)=>{
+
+        el.addEventListener('dragover', (ev)=>{
             ev.stopPropagation()
+            ev.preventDefault();
+            console.log('drag-over')
+        })
+        el.addEventListener('dragleave', (ev)=>{
+            ev.stopPropagation()
+            console.log('drag-leave')
             el.classList.remove('drag-over')
         })
-        el.addEventListener('mouseup', (ev)=>{
+        el.addEventListener('drop', (ev)=>{
             console.log('drop', ev.target)
+            ev.preventDefault();
             ev.stopPropagation();
             el.classList.remove('drag-over')
             const data = ev.dataTransfer.getData("text/plain");

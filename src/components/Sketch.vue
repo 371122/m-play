@@ -8,13 +8,18 @@
 import Block from './block/Block'
 import FlexContainer from './container/FlexContainer'
 import RootContainer from './container/RootContainer'
+
+import { find } from '../util/schema'
+
 export default {
     name:"Sketch",
+
+    componentName: "sketch",
 
     components:{
         Block,
         FlexContainer,
-        RootContainer
+        RootContainer,
     },
 
     props:{
@@ -31,13 +36,23 @@ export default {
             return this.widget.tag
         }
     },
+    created(){
+        this.$on("astChange", ({widget, type, parentId, index}) => {
+            console.log('astChange', parentId,  type ,widget)
+            if(type === 'add') {
+                const { component } = find(this.widget, parentId)
+                component.children.push(widget)
+            }
+        })
+    },
     methods:{
         /**
          * todo:使用splice改写
-         * 参数添加index，从某处插入子元素
+         * 参数添加index，从某处插入子元素s
          */
         handleAdd(parentId, widget){
             this.widget.children.push(widget)
+            console.log(parentId, widget)
             // const parent = this.widget.children.find(child => {
             //     return child.id === parentId;
             // })

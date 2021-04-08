@@ -1,12 +1,25 @@
 <template>
   <div class="root-container" :style="style" v-droppable>
       <!-- todo:动态渲染children -->
+      <template v-for="cmp in widget.children">
+        <component :is="cmp.tag" v-bind="getProps(cmp)" :key="cmp.componentId"/>
+      </template>
   </div>
 </template>
 
 <script>
+import BaseContainer from './BaseContainer'
+import FlexContainer from './FlexContainer'
+import emitter from '../../util/emitter'
+
 export default {
     name:"RootContainer",
+
+    components: {
+        FlexContainer
+    },
+
+    mixins: [BaseContainer, emitter],
 
     props:{
         widget: Object,
@@ -20,7 +33,10 @@ export default {
         handleDrop(widget){
             const parentId = 'root'
             console.log('root', widget)
-            this.$emit('add-child', parentId,  widget)
+            this.dispatch('sketch', 'astChange', { parentId,  widget, type: 'add' })
+        },
+        getProps(cmp) {
+            return {widget: cmp, ...cmp.attrs} || {}
         }
     }
 

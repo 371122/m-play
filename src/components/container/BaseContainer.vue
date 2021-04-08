@@ -4,8 +4,12 @@
  * container递归渲染子树
  */
 import Vue from 'vue'
+import emitter from '../../util/emitter'
+
 export default Vue.extend({
     name:"BaseContainer",
+
+    mixins: [emitter],
     
     props:{
       widget: Object

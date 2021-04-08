@@ -33,7 +33,7 @@ const vResizable = {
             el.style.width = vm._offsetWidth + deltaX + 'px'
             el.style.height = vm._offsetHeight + deltaY + 'px'
         })
-        document.addEventListener('mouseup', el.__global_mouseup__. = () => {
+        document.addEventListener('mouseup', el.__global_mouseup__ = () => {
             vm._actived = false
         })
         el.appendChild(anchor)
